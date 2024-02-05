@@ -1,4 +1,4 @@
-package com.myblog.myblog1.controller;
+package com.myblog.myblog1.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
