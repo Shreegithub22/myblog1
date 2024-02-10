@@ -31,13 +31,15 @@ public class PostController {
     }
 
 
-    //http://localhost:8082/api/post/all?pageNo=0&pageSize=3
+    //http://localhost:8082/api/post/all?pageNo=0&pageSize=3&sortBy=title&sortDir=desc
     @GetMapping("/all")
     public List<PostDto> getAllPosts(
+            @RequestParam(name="sortBy",required = false,defaultValue = "id") String sortBy,
+            @RequestParam(name="sortDir",required = false,defaultValue = "id") String sortDir,
             @RequestParam(name="pageNo",required = false,defaultValue = "0") int pageNo,
             @RequestParam(name="pageSize",required = false,defaultValue = "3") int pageSize
             ){
-        List<PostDto> dto =postService.getAllPosts(pageNo,pageSize);
+        List<PostDto> dto =postService.getAllPosts(pageNo,pageSize,sortBy,sortDir);
         return dto;
     }
 

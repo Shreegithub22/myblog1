@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Table(name="posts")
 @Data
 @AllArgsConstructor
@@ -18,4 +20,8 @@ public class Post {
      private String description;
      private String content;
      private String title;
+
+     //one post can have multiple comments
+     @OneToMany(cascade=CascadeType.ALL,mappedBy = "post")
+     private List<Comment> comments;
 }
